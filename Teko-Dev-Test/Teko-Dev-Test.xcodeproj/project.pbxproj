@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521484F522F9D39C003118C6 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521484F422F9D39C003118C6 /* UIScreen+.swift */; };
+		521484F722F9D6BE003118C6 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521484F622F9D6BE003118C6 /* UIApplication+.swift */; };
 		52ADC93222F71AF4000D6408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC93122F71AF4000D6408 /* AppDelegate.swift */; };
 		52ADC93722F71AF4000D6408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52ADC93522F71AF4000D6408 /* Main.storyboard */; };
 		52ADC93922F71AF5000D6408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52ADC93822F71AF5000D6408 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		52ADC97722F73992000D6408 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC97622F73992000D6408 /* UIView+.swift */; };
 		52ADC97922F739C6000D6408 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC97822F739C6000D6408 /* UIViewController+.swift */; };
 		52ADC97C22F73ADC000D6408 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC97B22F73ADC000D6408 /* BaseVC.swift */; };
+		52ADC97F22F74452000D6408 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC97E22F74452000D6408 /* TagView.swift */; };
+		52ADC98122F7552A000D6408 /* FloatingPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC98022F7552A000D6408 /* FloatingPoint+.swift */; };
 		CACC0029B8B170B42983671B /* Pods_Teko_Dev_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE3F495E48CD1D38389971F /* Pods_Teko_Dev_Test.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,8 @@
 /* Begin PBXFileReference section */
 		277C2909786CD94E53E863FD /* Pods-Teko-Dev-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teko-Dev-Test.release.xcconfig"; path = "Target Support Files/Pods-Teko-Dev-Test/Pods-Teko-Dev-Test.release.xcconfig"; sourceTree = "<group>"; };
 		463A437277A5503DE2A34ADC /* Pods-Teko-Dev-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teko-Dev-Test.debug.xcconfig"; path = "Target Support Files/Pods-Teko-Dev-Test/Pods-Teko-Dev-Test.debug.xcconfig"; sourceTree = "<group>"; };
+		521484F422F9D39C003118C6 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
+		521484F622F9D6BE003118C6 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		52ADC92E22F71AF4000D6408 /* Teko-Dev-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teko-Dev-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ADC93122F71AF4000D6408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52ADC93622F71AF4000D6408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 		52ADC97622F73992000D6408 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		52ADC97822F739C6000D6408 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		52ADC97B22F73ADC000D6408 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		52ADC97E22F74452000D6408 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		52ADC98022F7552A000D6408 /* FloatingPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+.swift"; sourceTree = "<group>"; };
 		FFE3F495E48CD1D38389971F /* Pods_Teko_Dev_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teko_Dev_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +158,7 @@
 		52ADC95322F71B46000D6408 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				52ADC97D22F743F8000D6408 /* CustomView */,
 				52ADC97A22F73ACB000D6408 /* Base */,
 				52ADC95722F71BC2000D6408 /* Detail */,
 				52ADC95622F71B9E000D6408 /* Search */,
@@ -217,6 +226,9 @@
 				52ADC97422F7393A000D6408 /* UITableView+.swift */,
 				52ADC97622F73992000D6408 /* UIView+.swift */,
 				52ADC97822F739C6000D6408 /* UIViewController+.swift */,
+				52ADC98022F7552A000D6408 /* FloatingPoint+.swift */,
+				521484F422F9D39C003118C6 /* UIScreen+.swift */,
+				521484F622F9D6BE003118C6 /* UIApplication+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +251,14 @@
 				52ADC97B22F73ADC000D6408 /* BaseVC.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		52ADC97D22F743F8000D6408 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				52ADC97E22F74452000D6408 /* TagView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		CC519043433FA4A4B4412FF0 /* Pods */ = {
@@ -403,9 +423,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				521484F722F9D6BE003118C6 /* UIApplication+.swift in Sources */,
+				52ADC97F22F74452000D6408 /* TagView.swift in Sources */,
 				52ADC95A22F71C1B000D6408 /* SearchVC.swift in Sources */,
 				52ADC93222F71AF4000D6408 /* AppDelegate.swift in Sources */,
 				52ADC97922F739C6000D6408 /* UIViewController+.swift in Sources */,
+				52ADC98122F7552A000D6408 /* FloatingPoint+.swift in Sources */,
 				52ADC97722F73992000D6408 /* UIView+.swift in Sources */,
 				52ADC96322F72212000D6408 /* APIConfigs.swift in Sources */,
 				52ADC96922F725FA000D6408 /* BaseRequest.swift in Sources */,
@@ -416,6 +439,7 @@
 				52ADC96522F722A1000D6408 /* APIResponse.swift in Sources */,
 				52ADC97C22F73ADC000D6408 /* BaseVC.swift in Sources */,
 				52ADC97322F738CB000D6408 /* UIStoryboard+.swift in Sources */,
+				521484F522F9D39C003118C6 /* UIScreen+.swift in Sources */,
 				52ADC96B22F729E7000D6408 /* APIService+Item.swift in Sources */,
 				52ADC96722F7258F000D6408 /* APIService.swift in Sources */,
 				52ADC96122F72197000D6408 /* Constants.swift in Sources */,
@@ -583,6 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Teko-Dev-Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -601,6 +626,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Teko-Dev-Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

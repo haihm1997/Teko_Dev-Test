@@ -10,7 +10,7 @@ import Foundation
 
 struct Address {
 
-    static let baseUrl = "https://listing-stg.teko.vn/api/"
+    static let baseUrl = "https://listing-stg.services.teko.vn/api/"
     
     struct Search {
         static let searchItem = "search/"

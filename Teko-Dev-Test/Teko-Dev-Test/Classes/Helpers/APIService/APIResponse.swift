@@ -34,21 +34,20 @@ enum APIStatus: Int {
 struct APIResponse {
     var message: String = ""
     var result: Any?
-    var status = Status()
-    var data = [[String: Any]]()
+    var data = [String: Any]()
+    var code: String = ""
     
     init(_ response: DataResponse<Any>) {
         print("RESULT: \(String(describing: response.result.value))")
         if let value = response.result.value as? [String: Any] {
             self.result = value
             
-            if let statusDict = value["Status"] as? [String: Any] {
-                self.status = Status(JSON(statusDict))
+            if let code = value["code"] as? String {
+                self.code = code
             }
             
-            if let dict = value["Result"] as? [String: Any],
-                let array = dict["Data"] as? [[String: Any]] {
-                self.data = array
+            if let dict = value["result"] as? [String: Any] {
+                self.data = dict
             }
         }
         handlerTockenExpire()
@@ -66,26 +65,3 @@ struct APIResponse {
     }
 }
 
-struct Status {
-    var code = 0
-    var message = ""
-    var method = ""
-    var path = ""
-    var codeStr = ""
-    
-    init() {
-        
-    }
-    
-    init(_ json: JSON) {
-        code = json["Code"].intValue
-        message = json["Message"].stringValue
-        method = json["Method"].stringValue
-        path = json["Path"].stringValue
-        codeStr = json["Code"].stringValue
-    }
-    
-    var isSuccess: Bool {
-        return code == 200 || codeStr == "SUCCESS"
-    }
-}

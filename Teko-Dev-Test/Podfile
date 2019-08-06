@@ -11,5 +11,6 @@ target 'Teko-Dev-Test' do
   pod 'SVProgressHUD'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
+  pod 'AlamofireImage', '~> 3.5'
 
 end

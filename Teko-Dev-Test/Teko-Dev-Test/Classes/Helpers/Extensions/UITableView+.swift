@@ -14,4 +14,18 @@ extension UITableView {
         return self.dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as? T
     }
     
+    @IBInspectable
+    var isEmptyRowsHidden: Bool {
+        get {
+            return tableFooterView != nil
+        }
+        set {
+            if newValue {
+                tableFooterView = UIView(frame: .zero)
+            } else {
+                tableFooterView = nil
+            }
+        }
+    }
+    
 }

@@ -13,6 +13,7 @@
 		522DD69822F9EB4000885F13 /* SearchItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DD69722F9EB4000885F13 /* SearchItemCell.swift */; };
 		522DD69A22F9EE7000885F13 /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DD69922F9EE7000885F13 /* SearchItem.swift */; };
 		522DD69C22FA010600885F13 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DD69B22FA010600885F13 /* SearchResult.swift */; };
+		52A2111C22FB2339002A59A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2111B22FB2339002A59A8 /* Utils.swift */; };
 		52ADC93222F71AF4000D6408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC93122F71AF4000D6408 /* AppDelegate.swift */; };
 		52ADC93722F71AF4000D6408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52ADC93522F71AF4000D6408 /* Main.storyboard */; };
 		52ADC93922F71AF5000D6408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52ADC93822F71AF5000D6408 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		522DD69722F9EB4000885F13 /* SearchItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemCell.swift; sourceTree = "<group>"; };
 		522DD69922F9EE7000885F13 /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
 		522DD69B22FA010600885F13 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		52A2111B22FB2339002A59A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		52ADC92E22F71AF4000D6408 /* Teko-Dev-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teko-Dev-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ADC93122F71AF4000D6408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52ADC93622F71AF4000D6408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				52ADC96022F72197000D6408 /* Constants.swift */,
+				52A2111B22FB2339002A59A8 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				522DD69822F9EB4000885F13 /* SearchItemCell.swift in Sources */,
 				52ADC96722F7258F000D6408 /* APIService.swift in Sources */,
 				52ADC96122F72197000D6408 /* Constants.swift in Sources */,
+				52A2111C22FB2339002A59A8 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

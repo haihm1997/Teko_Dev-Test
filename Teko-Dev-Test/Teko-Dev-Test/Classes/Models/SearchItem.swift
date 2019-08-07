@@ -40,10 +40,12 @@ class SearchItem: NSObject {
             self.discount += item["promotionPrice"].floatValue
         }
         if self.price.sellPrice != 0 {
-            self.discountPercent = Int((self.discount / self.price.sellPrice) * 100)
+            let calculatedDiscountPercent = Int((self.discount / self.price.sellPrice) * 100)
+            self.discountPercent = calculatedDiscountPercent <= 100 ? calculatedDiscountPercent : 0
         } else {
             self.discountPercent = 0
         }
+        self.price.sellPrice -= self.discount
         self.thumbnailUrl = json["images"].arrayValue.first?.dictionaryObject?["url"] as? String ?? ""
         print("Thumbnail image: \(thumbnailUrl)")
     }

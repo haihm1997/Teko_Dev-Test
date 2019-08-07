@@ -39,12 +39,11 @@ class SearchItemCell: UITableViewCell {
     
     func fillData(item: SearchItem) {
         itemName.text = item.name
-        itemPriceLabel.text = item.price.sellPrice == 0 ? "0" : "\(item.price.sellPrice)"
+        itemPriceLabel.text = item.price.sellPrice == 0 ? "0" : Utils.toCurrencyFormat(item.price.sellPrice)
         discountView.isHidden = item.discountPercent == 0
         tagView.isHidden = item.discountPercent == 0
-        itemDiscountLabel.text = "\(item.discount)"
+        itemDiscountLabel.text = Utils.toCurrencyFormat(item.discount)
         tagView.discountLabel.text = "-\(item.discountPercent)%"
-        
         if !item.thumbnailUrl.isEmpty {
             if let url = URL(string: item.thumbnailUrl) {
                 itemImage.af_setImage(withURL: url)

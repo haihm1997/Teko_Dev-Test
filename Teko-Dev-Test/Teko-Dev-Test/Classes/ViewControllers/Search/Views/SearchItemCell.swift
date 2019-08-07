@@ -44,8 +44,9 @@ class SearchItemCell: UITableViewCell {
         tagView.isHidden = item.discountPercent == 0
         itemDiscountLabel.text = Utils.toCurrencyFormat(item.discount)
         tagView.discountLabel.text = "-\(item.discountPercent)%"
-        if !item.thumbnailUrl.isEmpty {
-            if let url = URL(string: item.thumbnailUrl) {
+        let imageUrl = item.imageUrlList.first ?? ""
+        if !imageUrl.isEmpty {
+            if let url = URL(string: imageUrl) {
                 itemImage.af_setImage(withURL: url)
             }
         } else {

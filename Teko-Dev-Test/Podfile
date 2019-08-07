@@ -12,5 +12,6 @@ target 'Teko-Dev-Test' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'AlamofireImage', '~> 3.5'
+  pod 'FSPagerView'
 
 end

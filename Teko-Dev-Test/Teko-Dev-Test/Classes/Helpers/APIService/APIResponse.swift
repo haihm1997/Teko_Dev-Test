@@ -12,23 +12,9 @@ import RxSwift
 import SVProgressHUD
 import SwiftyJSON
 
-enum APIStatus: Int {
-    case success = 0
-    case failed = 1
-    case error = 2
-    case none = 3
-    case empty = 4
-    
-    static func rawValue(_ value: Int) -> APIStatus {
-        switch value {
-            case 0: return .success
-            case 1: return .failed
-            case 2: return .error
-            case 3: return .none
-            case 4: return .empty
-            default: return .none
-        }
-    }
+enum ApiCode: String {
+    case success = "SUCCESS"
+    case failed = "FAILED"
 }
 
 struct APIResponse {

@@ -17,6 +17,7 @@ struct Constants {
         static let tomatoTwo = UIColor(red: 223, green: 32, blue: 32)
         static let reddishOrange = UIColor(red: 245, green: 71, blue: 30)
         static let paleGrey = UIColor(red: 238, green: 241, blue: 243)
+        static let pumpkinOrange = UIColor(red: 245, green: 132, blue: 0)
     }
     
 }

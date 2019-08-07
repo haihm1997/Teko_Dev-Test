@@ -15,13 +15,9 @@ class BaseVC: UIViewController {
 
     // MARK: LIFE CYCLE
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
 }

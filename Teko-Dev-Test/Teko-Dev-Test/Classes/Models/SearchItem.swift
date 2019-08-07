@@ -12,23 +12,15 @@ import SwiftyJSON
 class SearchItem: NSObject {
     
     var id = ""
-    var thumbnailUrl = ""
+    var imageUrlList = [String]()
     var name = ""
     var price = Price()
     var discount: Float = 0
     var discountPercent = 0
+    var totalAvailable = 0
     
     override init() {
         super.init()
-    }
-    
-    init(id: String, thumbnailUrl: String, name: String, price: Price, discount: Float = 0, discountPercent: Int = 0) {
-        self.id = id
-        self.thumbnailUrl = thumbnailUrl
-        self.name = name
-        self.price = price
-        self.discount = discount
-        self.discountPercent = discountPercent
     }
     
     init(_ json: JSON) {
@@ -46,8 +38,8 @@ class SearchItem: NSObject {
             self.discountPercent = 0
         }
         self.price.sellPrice -= self.discount
-        self.thumbnailUrl = json["images"].arrayValue.first?.dictionaryObject?["url"] as? String ?? ""
-        print("Thumbnail image: \(thumbnailUrl)")
+        self.imageUrlList = json["images"].arrayValue.map({$0["url"].stringValue}).reversed()
+        self.totalAvailable = json["totalAvailable"].intValue
     }
     
 }

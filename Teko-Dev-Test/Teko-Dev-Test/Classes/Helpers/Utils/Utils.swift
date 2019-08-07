@@ -6,7 +6,7 @@
 //  Copyright © 2019 HoangHai. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Utils: NSObject {
     
@@ -17,6 +17,15 @@ class Utils: NSObject {
         currencyFormatter.locale = Locale(identifier: "vi")
         let currencyStr = currencyFormatter.string(from: NSNumber(value: input))
         return currencyStr?.components(separatedBy: ",").first ?? "0"
+    }
+    
+    static func makeGradientForView(_ parentView: UIView) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = parentView.bounds
+        gradientLayer.colors =  [Constants.Color.tomatoTwo.cgColor, Constants.Color.reddishOrange.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        parentView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
 }

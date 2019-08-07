@@ -14,6 +14,12 @@
 		522DD69A22F9EE7000885F13 /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DD69922F9EE7000885F13 /* SearchItem.swift */; };
 		522DD69C22FA010600885F13 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DD69B22FA010600885F13 /* SearchResult.swift */; };
 		52A2111C22FB2339002A59A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2111B22FB2339002A59A8 /* Utils.swift */; };
+		52A2111F22FB2A3A002A59A8 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2111E22FB2A3A002A59A8 /* DetailVC.swift */; };
+		52A2112122FB34ED002A59A8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2112022FB34ED002A59A8 /* CustomAlert.swift */; };
+		52A2112322FB3DD4002A59A8 /* ItemInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2112222FB3DD4002A59A8 /* ItemInfoCell.swift */; };
+		52A2112522FB3DF9002A59A8 /* ItemInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A2112422FB3DF9002A59A8 /* ItemInfoCell.xib */; };
+		52A2112722FB56A6002A59A8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2112622FB56A6002A59A8 /* ImageCell.swift */; };
+		52A2112922FB579A002A59A8 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A2112822FB579A002A59A8 /* ImageCell.xib */; };
 		52ADC93222F71AF4000D6408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC93122F71AF4000D6408 /* AppDelegate.swift */; };
 		52ADC93722F71AF4000D6408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52ADC93522F71AF4000D6408 /* Main.storyboard */; };
 		52ADC93922F71AF5000D6408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52ADC93822F71AF5000D6408 /* Assets.xcassets */; };
@@ -59,6 +65,12 @@
 		522DD69922F9EE7000885F13 /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
 		522DD69B22FA010600885F13 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		52A2111B22FB2339002A59A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		52A2111E22FB2A3A002A59A8 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		52A2112022FB34ED002A59A8 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		52A2112222FB3DD4002A59A8 /* ItemInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoCell.swift; sourceTree = "<group>"; };
+		52A2112422FB3DF9002A59A8 /* ItemInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemInfoCell.xib; sourceTree = "<group>"; };
+		52A2112622FB56A6002A59A8 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		52A2112822FB579A002A59A8 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		52ADC92E22F71AF4000D6408 /* Teko-Dev-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teko-Dev-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ADC93122F71AF4000D6408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52ADC93622F71AF4000D6408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +119,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52A2111D22FB29D5002A59A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				52A2112222FB3DD4002A59A8 /* ItemInfoCell.swift */,
+				52A2112422FB3DF9002A59A8 /* ItemInfoCell.xib */,
+				52A2112622FB56A6002A59A8 /* ImageCell.swift */,
+				52A2112822FB579A002A59A8 /* ImageCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		52ADC92522F71AF4000D6408 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +232,8 @@
 		52ADC95722F71BC2000D6408 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				52A2111D22FB29D5002A59A8 /* Views */,
+				52A2111E22FB2A3A002A59A8 /* DetailVC.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -272,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				52ADC97E22F74452000D6408 /* TagView.swift */,
+				52A2112022FB34ED002A59A8 /* CustomAlert.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -379,6 +405,8 @@
 				521484F922F9E49D003118C6 /* SearchItemCell.xib in Resources */,
 				52ADC93C22F71AF5000D6408 /* LaunchScreen.storyboard in Resources */,
 				52ADC93922F71AF5000D6408 /* Assets.xcassets in Resources */,
+				52A2112922FB579A002A59A8 /* ImageCell.xib in Resources */,
+				52A2112522FB3DF9002A59A8 /* ItemInfoCell.xib in Resources */,
 				52ADC93722F71AF4000D6408 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +472,8 @@
 				52ADC97F22F74452000D6408 /* TagView.swift in Sources */,
 				522DD69A22F9EE7000885F13 /* SearchItem.swift in Sources */,
 				52ADC95A22F71C1B000D6408 /* SearchVC.swift in Sources */,
+				52A2112722FB56A6002A59A8 /* ImageCell.swift in Sources */,
+				52A2111F22FB2A3A002A59A8 /* DetailVC.swift in Sources */,
 				52ADC93222F71AF4000D6408 /* AppDelegate.swift in Sources */,
 				52ADC97922F739C6000D6408 /* UIViewController+.swift in Sources */,
 				52ADC98122F7552A000D6408 /* FloatingPoint+.swift in Sources */,
@@ -460,7 +490,9 @@
 				521484F522F9D39C003118C6 /* UIScreen+.swift in Sources */,
 				52ADC96B22F729E7000D6408 /* APIService+Item.swift in Sources */,
 				522DD69822F9EB4000885F13 /* SearchItemCell.swift in Sources */,
+				52A2112322FB3DD4002A59A8 /* ItemInfoCell.swift in Sources */,
 				52ADC96722F7258F000D6408 /* APIService.swift in Sources */,
+				52A2112122FB34ED002A59A8 /* CustomAlert.swift in Sources */,
 				52ADC96122F72197000D6408 /* Constants.swift in Sources */,
 				52A2111C22FB2339002A59A8 /* Utils.swift in Sources */,
 			);

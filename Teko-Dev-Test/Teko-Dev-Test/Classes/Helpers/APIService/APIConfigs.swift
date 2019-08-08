@@ -14,12 +14,8 @@ struct Address {
     
     struct Search {
         static let searchItem = "search/"
+        static let baseDetailItem = "products/"
+        static var detailItemExcLink = ""
     }
     
-}
-
-struct APICode {
-    static let API_CODE_OK                            = "000"
-    static let API_CODE_FAIL                          = "999"
-    static let API_TOKEN_EXPIRE                       = "9999"
 }

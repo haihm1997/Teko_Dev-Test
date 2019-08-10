@@ -17,15 +17,14 @@ class SearchVC: BaseVC {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var searchResult: [SearchItem] = [SearchItem]()
+    var searchResult = [SearchItem]()
     
-    // MARK: LIFE CYCLE
+    // MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
         configTableView()
-        searchItemWithParam(query: "")
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,7 +36,7 @@ class SearchVC: BaseVC {
         return .lightContent
     }
     
-    // MARK: FUNCTIONS
+    // MARK: - CONFIGS
     
     private func configTableView() {
         tableView.delegate = self
@@ -57,7 +56,19 @@ class SearchVC: BaseVC {
         Utils.makeGradientForView(containerSearchView)
     }
     
-    fileprivate func searchItemWithParam(query: String) {
+    // MARK: - NAVIGATIONS
+    
+    private func showDetailProduct(_ product: SearchItem?) {
+        guard let product = product else { return }
+        let detailVC = self.instantiateViewController(fromStoryboard: .main, ofType: DetailVC.self)
+        detailVC.selectedItem = product
+        detailVC.searchList = searchResult
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    // MARK: - CALL API
+    
+    private func searchItemWithParam(query: String) {
         let param = ["channel": "pv_online", "visitorId": "", "q": query, "terminal": "CP01"]
         showLoading()
         APIService.searchItem(param).subscribe(onNext: { [weak self] response in
@@ -65,7 +76,7 @@ class SearchVC: BaseVC {
             self?.dismissLoading()
             if response.code == ApiCode.success.rawValue {
                 if let productsDict = response.data["products"] as? [[String: Any]] {
-                    self?.searchResult = productsDict.map({SearchItem(JSON($0))})
+                    weakSelf.searchResult = productsDict.map({SearchItem(JSON($0))})
                 }
                 self?.tableView.reloadData()
             } else {
@@ -95,7 +106,7 @@ extension SearchVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchItemCell = tableView.dequeueReusableCell(ofType: SearchItemCell.self, for: indexPath)
         let item = searchResult[safe: indexPath.row]
-        searchItemCell?.fillData(item: item ?? SearchItem())
+        searchItemCell?.fillData(item: item)
         return searchItemCell ?? UITableViewCell()
     }
     
@@ -105,10 +116,6 @@ extension SearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let detailVC = self.instantiateViewController(fromStoryboard: .main, ofType: DetailVC.self)
-        detailVC.selectedItem = searchResult[safe: indexPath.row] ?? SearchItem()
-        detailVC.searchList = searchResult
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        showDetailProduct(searchResult[safe: indexPath.row])
     }
-    
 }

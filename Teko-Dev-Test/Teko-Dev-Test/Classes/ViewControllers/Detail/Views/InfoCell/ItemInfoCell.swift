@@ -39,6 +39,8 @@ class ItemInfoCell: UITableViewCell {
         // Initialization code
     }
     
+    // MARK: - FUNCTIONS
+    
     private func configView() {
         // make gradient for available view
         Utils.makeGradientForView(availableView)

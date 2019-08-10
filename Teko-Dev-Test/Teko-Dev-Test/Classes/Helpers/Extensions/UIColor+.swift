@@ -27,4 +27,8 @@ extension UIColor {
         )
     }
     
+    static var tomato: UIColor {
+        return UIColor(red: 234, green: 52, blue: 31)
+    }
+    
 }

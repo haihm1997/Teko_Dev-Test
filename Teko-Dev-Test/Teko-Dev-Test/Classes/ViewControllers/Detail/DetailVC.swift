@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class DetailVC: BaseVC {
 
@@ -16,20 +17,26 @@ class DetailVC: BaseVC {
     @IBOutlet weak var cartNumberLabel: UILabel!
     @IBOutlet weak var separateView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cartContainerView: UIView!
+    @IBOutlet weak var cartPriceLabel: UILabel!
+    @IBOutlet weak var numberItemLabel: UILabel!
     
     var selectedItem = SearchItem()
     var searchList = [SearchItem]()
+    var detailItem = DetailItem()
     fileprivate let infoRowHeight: CGFloat = 462
     fileprivate let categoriesRowHeight: CGFloat = 242
     fileprivate let attributeRowHeight: CGFloat = 200
+    var currentNumberItem = 1
     
-    // MARK: LIFE CYCLE
+    // MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fillData()
-        configTableView()
+        configView()
         getDetailItem()
+        configTableView()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -42,7 +49,31 @@ class DetailVC: BaseVC {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: FUNCTIONS
+    @IBAction func removeItemTapped(_ sender: Any) {
+        if currentNumberItem > 1 {
+            currentNumberItem -= 1
+            setPriceForAllView()
+        }
+    }
+    
+    @IBAction func addItemTapped(_ sender: Any) {
+        currentNumberItem += 1
+        setPriceForAllView()
+    }
+    
+    // MARK: - FUNCTIONS
+    
+    private func setPriceForAllView() {
+        numberItemLabel.text = "\(currentNumberItem)"
+        cartNumberLabel.text = "\(currentNumberItem)"
+        let totalPrice = selectedItem.price.sellPrice * Float(currentNumberItem)
+        cartPriceLabel.text = Utils.toCurrencyFormat(totalPrice)
+    }
+    
+    private func configView() {
+        tableView.isHidden = true
+        Utils.makeGradientForView(cartContainerView)
+    }
     
     private func configTableView() {
         tableView.dataSource = self
@@ -51,21 +82,30 @@ class DetailVC: BaseVC {
                            forCellReuseIdentifier: ItemInfoCell.identifier)
         tableView.register(UINib(nibName: CategoriesCell.identifier, bundle: nil),
                            forCellReuseIdentifier: CategoriesCell.identifier)
+        tableView.register(UINib(nibName: SameTypeCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: SameTypeCell.identifier)
     }
     
     private func fillData() {
+        cartNumberLabel.text = "\(1)"
+        numberItemLabel.text = "\(1)"
+        cartPriceLabel.text = Utils.toCurrencyFormat(selectedItem.price.sellPrice)
         headerLabel.text = selectedItem.name
         headerPriceLabel.text = Utils.toCurrencyFormat(selectedItem.price.sellPrice)
     }
     
-    fileprivate func getDetailItem() {
+    private func getDetailItem() {
         Address.Search.detailItemExcLink = Address.Search.baseDetailItem + "\(selectedItem.id)"
         showLoading()
         APIService.detailItem().subscribe(onNext: { [weak self] response in
             guard let weakSelf = self else { return }
             self?.dismissLoading()
             if response.code == ApiCode.success.rawValue {
-                print("Success")
+                if let product = response.data["product"] as? [String: Any] {
+                    weakSelf.detailItem = DetailItem(json: JSON(product))
+                }
+                weakSelf.tableView.isHidden = false
+                weakSelf.tableView.reloadData()
             } else {
                 CustomDialog.shared().showSimpleAlert(message: "Có lỗi xảy ra", currentVC: weakSelf)
             }
@@ -77,7 +117,7 @@ class DetailVC: BaseVC {
 extension DetailVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,6 +126,8 @@ extension DetailVC: UITableViewDataSource {
             return setupItemInfoCell(indexPath: indexPath)
         case CellIndexPath.CategoriesCell.rawValue:
             return setupCategoriesCell(indexPath: indexPath)
+        case CellIndexPath.SameTypeProductCell.rawValue:
+            return setupSameTypeCell(indexPath: indexPath)
         default:
             return UITableViewCell()
         }
@@ -99,11 +141,20 @@ extension DetailVC: UITableViewDataSource {
     
     private func setupCategoriesCell(indexPath: IndexPath) -> UITableViewCell {
         let categoriesCell = tableView.dequeueReusableCell(ofType: CategoriesCell.self, for: indexPath)
-        categoriesCell?.categoriesCellDelegate = self
+        categoriesCell?.detailItem = detailItem
+        categoriesCell?.didChangeCellHeight = {
+            self.tableView.reloadData()
+        }
         return categoriesCell ?? UITableViewCell()
     }
     
-    fileprivate func reloadCategoryRow() {
+    private func setupSameTypeCell(indexPath: IndexPath) -> UITableViewCell {
+        let sameTypeCell = tableView.dequeueReusableCell(ofType: SameTypeCell.self, for: indexPath)
+        sameTypeCell?.itemList = searchList
+        return sameTypeCell ?? UITableViewCell()
+    }
+    
+    private func reloadCategoryRow() {
         self.tableView.reloadData()
     }
     
@@ -123,33 +174,12 @@ extension DetailVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.row {
-//        case CellIndexPath.CategoriesCell.rawValue:
-//            return UITableView.automaticDimension
-//        default:
-//            return UITableView.automaticDimension
-//        }
-        return UITableView.automaticDimension
-    }
-    
-}
-
-extension DetailVC: CategoriesCellDelegate {
-    
-    func didTapCompareButton() {
-        reloadCategoryRow()
-    }
-    
-    func didTapAttributeButton() {
-        reloadCategoryRow()
-    }
-    
-    func didTapDescButton() {
-        reloadCategoryRow()
-    }
-    
-    func cellDidChangedHeihgt() {
-        self.tableView.reloadData()
+        switch indexPath.row {
+        case CellIndexPath.SameTypeProductCell.rawValue:
+            return 298
+        default:
+            return UITableView.automaticDimension
+        }
     }
     
 }

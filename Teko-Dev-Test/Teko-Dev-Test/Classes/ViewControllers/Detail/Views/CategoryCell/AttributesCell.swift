@@ -23,17 +23,20 @@ class AttributesCell: FSPagerViewCell {
     private let rowHeight: CGFloat = 35
     private let originParentCellHeight: CGFloat = 200
     
-    let attributeList = [AttributeItem(index: 0, name: "Thương Hiệu 1", value: "Cooler Master"),
-                         AttributeItem(index: 1, name: "Thương Hiệu 2", value: "Cooler Master"),
-                         AttributeItem(index: 2, name: "Thương Hiệu 3", value: "Cooler Master"),
-                         AttributeItem(index: 3, name: "Thương Hiệu 4", value: "Cooler Master"),
-                         AttributeItem(index: 4, name: "Thương Hiệu 5", value: "Cooler Master"),
-                         AttributeItem(index: 5, name: "Thương Hiệu 6", value: "Cooler Master"),
-                         AttributeItem(index: 6, name: "Thương Hiệu 7", value: "Cooler Master"),
-                         AttributeItem(index: 7, name: "Thương Hiệu 7", value: "Cooler Master"),
-                         AttributeItem(index: 8, name: "Thương Hiệu 7", value: "Cooler Master"),
-                         AttributeItem(index: 9, name: "Thương Hiệu 7", value: "Cooler Master")
-    ]
+    // fake data to test lage of number attribute
+//    let attributeList = [AttributeItem(index: 0, name: "Thương Hiệu 1", value: "Cooler Master"),
+//                         AttributeItem(index: 1, name: "Thương Hiệu 2", value: "Cooler Master"),
+//                         AttributeItem(index: 2, name: "Thương Hiệu 3", value: "Cooler Master"),
+//                         AttributeItem(index: 3, name: "Thương Hiệu 4", value: "Cooler Master"),
+//                         AttributeItem(index: 4, name: "Thương Hiệu 5", value: "Cooler Master"),
+//                         AttributeItem(index: 5, name: "Thương Hiệu 6", value: "Cooler Master"),
+//                         AttributeItem(index: 6, name: "Thương Hiệu 7", value: "Cooler Master"),
+//                         AttributeItem(index: 7, name: "Thương Hiệu 7", value: "Cooler Master"),
+//                         AttributeItem(index: 8, name: "Thương Hiệu 7", value: "Cooler Master"),
+//                         AttributeItem(index: 9, name: "Thương Hiệu 7", value: "Cooler Master")
+//                        ]
+    
+    var attributeList = [Attribute]()
     
     override func awakeFromNib() {
         configTableView()
@@ -42,6 +45,8 @@ class AttributesCell: FSPagerViewCell {
         addShowMoreTapGesture()
         checkShowMoreViewVisibility()
     }
+    
+    // MARKS: FUNCTIONS
     
     private func checkShowMoreViewVisibility() {
         let realCellHeight = rowHeight * CGFloat(attributeList.count) + 24
@@ -90,7 +95,7 @@ extension AttributesCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let attributeCell = tableView.dequeueReusableCell(ofType: AttributeItemCell.self, for: indexPath)
-        let item = attributeList[safe: indexPath.row] ?? AttributeItem()
+        let item = attributeList[safe: indexPath.row] ?? Attribute()
         attributeCell?.fillData(item: item)
         return attributeCell ?? UITableViewCell()
     }

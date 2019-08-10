@@ -27,17 +27,20 @@ class SearchItemCell: UITableViewCell {
         configUI()
     }
     
+    // MARK: - FUNCTIONS
+    
     func configUI() {
         itemName.numberOfLines = 2
         itemName.textColor = Constants.Color.darkGrey
-        itemPriceLabel.textColor = Constants.Color.tomato
+        itemPriceLabel.textColor = .tomato //Constants.Color.tomato
         itemDiscountLabel.textColor = Constants.Color.coolGrey
         separateView.backgroundColor = Constants.Color.coolGrey
         dLabel.textColor = Constants.Color.tomato
         self.contentView.backgroundColor = Constants.Color.paleGrey
     }
     
-    func fillData(item: SearchItem) {
+    func fillData(item: SearchItem?) {
+        guard let item = item else { return }
         itemName.text = item.name
         itemPriceLabel.text = item.price.sellPrice == 0 ? "0" : Utils.toCurrencyFormat(item.price.sellPrice)
         discountView.isHidden = item.discountPercent == 0

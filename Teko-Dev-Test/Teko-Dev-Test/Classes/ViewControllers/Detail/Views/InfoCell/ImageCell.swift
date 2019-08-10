@@ -16,6 +16,8 @@ class ImageCell: FSPagerViewCell {
     
     static let identifier = "ImageCell"
     
+    // MARK: - FUNCTIONS
+    
     func fillData(imageUrl: String) {
         if let url = URL(string: imageUrl) {
             itemImageView.af_setImage(withURL: url)

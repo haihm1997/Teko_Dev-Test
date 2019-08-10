@@ -9,13 +9,6 @@
 import UIKit
 import FSPagerView
 
-protocol CategoriesCellDelegate: class {
-    func didTapDescButton()
-    func didTapAttributeButton()
-    func didTapCompareButton()
-    func cellDidChangedHeihgt()
-}
-
 class CategoriesCell: UITableViewCell {
     
     @IBOutlet weak var descItemButton: UIButton!
@@ -36,55 +29,53 @@ class CategoriesCell: UITableViewCell {
         }
     }
     
-    var categoriesCellDelegate: CategoriesCellDelegate?
+    var didChangeCellHeight: (() -> ())?
     
     static let identifier = "CategoriesCell"
     var currentCellHeight: [Int: CGFloat] = [CategoriesCellIndex.DescCellType.rawValue: 200,
                                              CategoriesCellIndex.AttributeCellType.rawValue: 200,
                                              CategoriesCellIndex.CompareCellType.rawValue: 200]
+    var detailItem = DetailItem()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        configCategoryButtonAt(index: CategoriesCellIndex.DescCellType.rawValue)
+        configCategoryButtonAt(index: CategoriesCellIndex.DescCellType)
     }
 
-    // MARK: ACTIONS
+    // MARK: - ACTIONS
     
     @IBAction func descButtonTapped(_ sender: Any) {
-        configCategoryButtonAt(index: CategoriesCellIndex.DescCellType.rawValue)
+        configCategoryButtonAt(index: CategoriesCellIndex.DescCellType)
         pagerView.scrollToItem(at: CategoriesCellIndex.DescCellType.rawValue, animated: false)
         updateTableCellHeight(currentIndex: CategoriesCellIndex.DescCellType.rawValue)
     }
     
     @IBAction func attributeButtonTapped(_ sender: Any) {
-        configCategoryButtonAt(index: CategoriesCellIndex.AttributeCellType.rawValue)
+        configCategoryButtonAt(index: CategoriesCellIndex.AttributeCellType)
         pagerView.scrollToItem(at: CategoriesCellIndex.AttributeCellType.rawValue, animated: false)
         updateTableCellHeight(currentIndex: CategoriesCellIndex.AttributeCellType.rawValue)
     }
     
     @IBAction func compareButtonTapped(_ sender: Any) {
-        configCategoryButtonAt(index: CategoriesCellIndex.CompareCellType.rawValue)
+        configCategoryButtonAt(index: CategoriesCellIndex.CompareCellType)
         pagerView.scrollToItem(at: CategoriesCellIndex.CompareCellType.rawValue, animated: false)
         updateTableCellHeight(currentIndex: CategoriesCellIndex.CompareCellType.rawValue)
     }
     
-    // MARK: FUNCTIONS
+    // MARK: - FUNCTIONS
     
-    private func configCategoryButtonAt(index: Int) {
+    private func configCategoryButtonAt(index: CategoriesCellIndex) {
         resetAllView()
         switch index {
-        case CategoriesCellIndex.DescCellType.rawValue:
+        case CategoriesCellIndex.DescCellType:
             descItemButton.setTitleColor(Constants.Color.darkGrey, for: .normal)
             descDecorView.backgroundColor = Constants.Color.tomato
-        case CategoriesCellIndex.AttributeCellType.rawValue:
+        case CategoriesCellIndex.AttributeCellType:
             attributeButton.setTitleColor(Constants.Color.darkGrey, for: .normal)
             attributeDecorView.backgroundColor = Constants.Color.tomato
-        case CategoriesCellIndex.CompareCellType.rawValue:
+        case CategoriesCellIndex.CompareCellType:
             comparePriceButton.setTitleColor(Constants.Color.darkGrey, for: .normal)
             compareDecorView.backgroundColor = Constants.Color.tomato
-        default:
-            descItemButton.setTitleColor(Constants.Color.darkGrey, for: .normal)
-            descDecorView.backgroundColor = Constants.Color.tomato
         }
     }
     
@@ -102,7 +93,7 @@ class CategoriesCell: UITableViewCell {
     
     fileprivate func updateTableCellHeight(currentIndex: Int) {
         self.pageViewHeight.constant = currentCellHeight[currentIndex] ?? 0
-        self.categoriesCellDelegate?.cellDidChangedHeihgt()
+        self.didChangeCellHeight?()
     }
     
 }
@@ -130,11 +121,12 @@ extension CategoriesCell: FSPagerViewDataSource {
         guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: AttributesCell.identifier, at: index) as? AttributesCell else {
             return FSPagerViewCell()
         }
+        cell.attributeList = detailItem.attributeList
         cell.didTapShowMore = { tableHeight in
             let realCellHeight = tableHeight + 24
             self.pageViewHeight.constant = realCellHeight
             self.currentCellHeight.updateValue(realCellHeight, forKey: CategoriesCellIndex.AttributeCellType.rawValue)
-            self.categoriesCellDelegate?.cellDidChangedHeihgt()
+            self.didChangeCellHeight?()
         }
         cell.contentView.layer.shadowColor = UIColor.clear.cgColor
         return cell
@@ -145,13 +137,13 @@ extension CategoriesCell: FSPagerViewDataSource {
         guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: DescriptionCell.identifier, at: index) as? DescriptionCell else {
             return FSPagerViewCell()
         }
-        let loremStr = "Lorem Ipsum is simply "
-        cell.fillData(content: loremStr)
+        let description = detailItem.description
+        cell.fillData(content: description)
         cell.didTapShowMore = { contentViewHeight in
             let realTextViewHeight = contentViewHeight + 24
             self.pageViewHeight.constant = realTextViewHeight
             self.currentCellHeight.updateValue(realTextViewHeight, forKey: CategoriesCellIndex.DescCellType.rawValue)
-            self.categoriesCellDelegate?.cellDidChangedHeihgt()
+            self.didChangeCellHeight?()
         }
         cell.contentView.layer.shadowColor = UIColor.clear.cgColor
         return cell
@@ -174,7 +166,9 @@ extension CategoriesCell: FSPagerViewDelegate {
     }
     
     func pagerViewDidEndDecelerating(_ pagerView: FSPagerView) {
-        configCategoryButtonAt(index: pagerView.currentIndex)
+        let index = pagerView.currentIndex
+        let cellIndex: CategoriesCellIndex = CategoriesCellIndex(rawValue: index) ?? .DescCellType
+        configCategoryButtonAt(index:  cellIndex)
         updateTableCellHeight(currentIndex: pagerView.currentIndex)
     }
     

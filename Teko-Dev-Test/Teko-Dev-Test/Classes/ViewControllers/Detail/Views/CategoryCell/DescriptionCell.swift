@@ -28,6 +28,8 @@ class DescriptionCell: FSPagerViewCell {
         addShowMoreTapGesture()
     }
     
+    // MARK: - FUNCTIONS
+    
     func fillData(content: String) {
         contentItemView.text = content
         checkShowMoreViewVisibility()

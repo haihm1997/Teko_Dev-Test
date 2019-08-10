@@ -1,25 +1,27 @@
 //
-//  AttributeCell.swift
+//  AttributesCell.swift
 //  Teko-Dev-Test
 //
-//  Created by Hoàng Hải on 8/8/19.
+//  Created by Hoàng Hải on 8/10/19.
 //  Copyright © 2019 HoangHai. All rights reserved.
 //
 
 import UIKit
+import FSPagerView
 
-class AttributeCell: UITableViewCell {
+class AttributesCell: FSPagerViewCell {
     
-    @IBOutlet weak var transparentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var transparentView: UIView!
     @IBOutlet weak var showMoreView: UIView!
     
-    var didTapShowMore: (() -> ())?
+    var didTapShowMore: ((_ tableCellHeight: CGFloat) -> ())?
     
-    static let identifier = "AttributeCell"
+    static let identifier = "AttributesCell"
     private let rowHeight: CGFloat = 35
+    private let originParentCellHeight: CGFloat = 200
     
     let attributeList = [AttributeItem(index: 0, name: "Thương Hiệu 1", value: "Cooler Master"),
                          AttributeItem(index: 1, name: "Thương Hiệu 2", value: "Cooler Master"),
@@ -31,13 +33,20 @@ class AttributeCell: UITableViewCell {
                          AttributeItem(index: 7, name: "Thương Hiệu 7", value: "Cooler Master"),
                          AttributeItem(index: 8, name: "Thương Hiệu 7", value: "Cooler Master"),
                          AttributeItem(index: 9, name: "Thương Hiệu 7", value: "Cooler Master")
-                        ]
+    ]
     
     override func awakeFromNib() {
-        super.awakeFromNib()
         configTableView()
+        self.layer.shadowColor = UIColor.clear.cgColor
         configTransparentView()
         addShowMoreTapGesture()
+        checkShowMoreViewVisibility()
+    }
+    
+    private func checkShowMoreViewVisibility() {
+        let realCellHeight = rowHeight * CGFloat(attributeList.count) + 24
+        transparentView.isHidden = realCellHeight < originParentCellHeight
+        bottomView.isHidden = transparentView.isHidden
     }
     
     private func configTableView() {
@@ -64,15 +73,16 @@ class AttributeCell: UITableViewCell {
     }
     
     @objc func showMoreTap() {
-        tableViewHeight.constant = rowHeight * CGFloat(attributeList.count)
+        let tableHeight = rowHeight * CGFloat(attributeList.count)
+        tableViewHeight.constant = tableHeight
         bottomView.isHidden = true
         transparentView.isHidden = true
-        didTapShowMore?()
+        didTapShowMore?(tableHeight)
     }
-
+    
 }
 
-extension AttributeCell: UITableViewDataSource {
+extension AttributesCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return attributeList.count
@@ -86,6 +96,3 @@ extension AttributeCell: UITableViewDataSource {
     }
     
 }
-
-
-

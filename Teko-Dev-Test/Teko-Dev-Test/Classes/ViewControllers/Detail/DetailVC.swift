@@ -19,7 +19,9 @@ class DetailVC: BaseVC {
     
     var selectedItem = SearchItem()
     var searchList = [SearchItem]()
-    var currentCategory = CategoriesCellType.AttributeCellType
+    fileprivate let infoRowHeight: CGFloat = 462
+    fileprivate let categoriesRowHeight: CGFloat = 242
+    fileprivate let attributeRowHeight: CGFloat = 200
     
     // MARK: LIFE CYCLE
     
@@ -49,12 +51,6 @@ class DetailVC: BaseVC {
                            forCellReuseIdentifier: ItemInfoCell.identifier)
         tableView.register(UINib(nibName: CategoriesCell.identifier, bundle: nil),
                            forCellReuseIdentifier: CategoriesCell.identifier)
-        tableView.register(UINib(nibName: AttributeCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: AttributeCell.identifier)
-        tableView.register(UINib(nibName: DescriptionItemCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: DescriptionItemCell.identifier)
-        tableView.register(UINib(nibName: CompareCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: CompareCell.identifier)
     }
     
     private func fillData() {
@@ -81,7 +77,7 @@ class DetailVC: BaseVC {
 extension DetailVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,8 +86,6 @@ extension DetailVC: UITableViewDataSource {
             return setupItemInfoCell(indexPath: indexPath)
         case CellIndexPath.CategoriesCell.rawValue:
             return setupCategoriesCell(indexPath: indexPath)
-        case CellIndexPath.AttributeCell.rawValue:
-            return switchCategoryCellItem(indexPath: indexPath)
         default:
             return UITableViewCell()
         }
@@ -109,40 +103,8 @@ extension DetailVC: UITableViewDataSource {
         return categoriesCell ?? UITableViewCell()
     }
     
-    private func switchCategoryCellItem(indexPath: IndexPath) -> UITableViewCell {
-        switch currentCategory {
-        case .DescCellType:
-            return setupDescriptionCell(indexPath: indexPath)
-        case .AttributeCellType:
-            return setupAttributeCell(indexPath: indexPath)
-        case .CompareCellType:
-            return setupCompareCell(indexPath: indexPath)
-        }
-    }
-    
-    private func setupAttributeCell(indexPath: IndexPath) -> UITableViewCell {
-        let attributeCell = tableView.dequeueReusableCell(ofType: AttributeCell.self, for: indexPath)
-        attributeCell?.didTapShowMore = {
-            self.reloadCategoryRow()
-        }
-        return attributeCell ?? UITableViewCell()
-    }
-    
-    private func setupDescriptionCell(indexPath: IndexPath) -> UITableViewCell {
-        let descriptionCell = tableView.dequeueReusableCell(ofType: DescriptionItemCell.self, for: indexPath)
-        descriptionCell?.fillData(content: "The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt")
-        return descriptionCell ?? UITableViewCell()
-    }
-    
-    private func setupCompareCell(indexPath: IndexPath) -> UITableViewCell {
-        let compareCell = tableView.dequeueReusableCell(ofType: CompareCell.self, for: indexPath)
-        compareCell?.fillData(content: "Compare Product")
-        return compareCell ?? UITableViewCell()
-    }
-    
     fileprivate func reloadCategoryRow() {
-        let indexPath = IndexPath(item: CellIndexPath.AttributeCell.rawValue, section: 0)
-        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        self.tableView.reloadData()
     }
     
 }
@@ -152,23 +114,22 @@ extension DetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case CellIndexPath.ItemInfoCell.rawValue:
-            return 462
+            return infoRowHeight
         case CellIndexPath.CategoriesCell.rawValue:
-            return 42
-        case CellIndexPath.AttributeCell.rawValue:
-            return 200
+            return categoriesRowHeight
         default:
             return UITableView.automaticDimension
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case CellIndexPath.CategoriesCell.rawValue:
-            return 42
-        default:
-            return UITableView.automaticDimension
-        }
+//        switch indexPath.row {
+//        case CellIndexPath.CategoriesCell.rawValue:
+//            return UITableView.automaticDimension
+//        default:
+//            return UITableView.automaticDimension
+//        }
+        return UITableView.automaticDimension
     }
     
 }
@@ -176,30 +137,25 @@ extension DetailVC: UITableViewDelegate {
 extension DetailVC: CategoriesCellDelegate {
     
     func didTapCompareButton() {
-        currentCategory = .CompareCellType
         reloadCategoryRow()
     }
     
     func didTapAttributeButton() {
-        currentCategory = .AttributeCellType
         reloadCategoryRow()
     }
     
     func didTapDescButton() {
-        currentCategory = .DescCellType
         reloadCategoryRow()
     }
-}
-
-enum CategoriesCellType: Int {
-    case DescCellType = 0
-    case AttributeCellType = 1
-    case CompareCellType = 2
+    
+    func cellDidChangedHeihgt() {
+        self.tableView.reloadData()
+    }
+    
 }
 
 enum CellIndexPath: Int {
     case ItemInfoCell = 0
     case CategoriesCell = 1
-    case AttributeCell = 2
-    case SameTypeProductCell = 3
+    case SameTypeProductCell = 2
 }

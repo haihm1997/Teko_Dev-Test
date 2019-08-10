@@ -25,6 +25,8 @@ class ItemInfoCell: UITableViewCell {
             self.pagerView.delegate = self
             self.pagerView.dataSource = self
             self.pagerView.register(UINib(nibName: ImageCell.identifier, bundle: nil), forCellWithReuseIdentifier: ImageCell.identifier)
+            self.pagerView.automaticSlidingInterval = 3
+            self.pagerView.isInfinite = true
         }
     }
     
@@ -44,7 +46,6 @@ class ItemInfoCell: UITableViewCell {
 
     func fillData(item: SearchItem) {
         self.currentItem = item
-        print("current item: \(currentItem.imageUrlList.count)")
         itemNameLabel.text = item.name
         itemCodeLabel.text = item.id
         notAvailableView.isHidden = item.totalAvailable != 0

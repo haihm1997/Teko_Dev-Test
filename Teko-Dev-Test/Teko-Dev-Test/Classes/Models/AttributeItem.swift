@@ -8,6 +8,7 @@
 
 import Foundation
 
+// using for fake data
 class AttributeItem: NSObject {
     
     var index = 0

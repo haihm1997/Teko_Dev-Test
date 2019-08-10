@@ -20,7 +20,6 @@ class Attribute: NSObject {
     }
     
     init(index: Int, json: JSON) {
-        print("attribute index: \(index)")
         self.index = index
         self.name = json["name"].stringValue
         self.value = json["value"].stringValue

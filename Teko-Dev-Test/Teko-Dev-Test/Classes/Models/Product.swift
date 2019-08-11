@@ -25,6 +25,7 @@ class Product: NSObject {
     }
     
     init(_ json: JSON) {
+        super.init()
         self.id = json["sku"].stringValue
         self.name = json["name"].stringValue
         self.price = Price(json["price"])
@@ -33,7 +34,7 @@ class Product: NSObject {
             self.discount += item["promotionPrice"].floatValue
         }
         if self.price.sellPrice != 0 {
-            let calculatedDiscountPercent = Int((self.discount / self.price.sellPrice) * 100)
+            let calculatedDiscountPercent = calculateDiscountPercent()
             self.discountPercent = calculatedDiscountPercent <= 100 ? calculatedDiscountPercent : 0
         } else {
             self.discountPercent = 0
@@ -41,6 +42,10 @@ class Product: NSObject {
         self.price.sellPrice -= self.discount
         self.imageUrlList = json["images"].arrayValue.map({$0["url"].stringValue}).reversed()
         self.totalAvailable = json["totalAvailable"].intValue
+    }
+    
+    private func calculateDiscountPercent() -> Int {
+        return Int((self.discount / self.price.sellPrice) * 100)
     }
     
 }

@@ -43,7 +43,7 @@ class DetailVC: BaseVC {
         return .default
     }
 
-    // MARK: ACTIONS
+    // MARK: - ACTIONS
     
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -94,6 +94,8 @@ class DetailVC: BaseVC {
         headerPriceLabel.text = Utils.toCurrencyFormat(selectedItem.price.sellPrice)
     }
     
+    // MARK: CALL API
+    
     private func getDetailItem() {
         Address.Search.detailItemExcLink = Address.Search.baseDetailItem + "\(selectedItem.id)"
         showLoading()
@@ -113,6 +115,8 @@ class DetailVC: BaseVC {
     }
     
 }
+
+// MARK: - TABLE VIEW DATA SOURCE
 
 extension DetailVC: UITableViewDataSource {
     
@@ -160,6 +164,8 @@ extension DetailVC: UITableViewDataSource {
     
 }
 
+// MARK: - TABLE VIEW DELEGATE
+
 extension DetailVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -183,6 +189,8 @@ extension DetailVC: UITableViewDelegate {
     }
     
 }
+
+// MARK: - ENUM
 
 enum CellIndexPath: Int {
     case ItemInfoCell = 0

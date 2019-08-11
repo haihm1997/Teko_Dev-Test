@@ -20,7 +20,7 @@ class AttributeItemCell: UITableViewCell {
         // Initialization code
     }
     
-    // MARK: FUNCTIONS
+    // MARK: - FUNCTIONS
     
     func fillData(item: Attribute?) {
         guard let item = item else { return }

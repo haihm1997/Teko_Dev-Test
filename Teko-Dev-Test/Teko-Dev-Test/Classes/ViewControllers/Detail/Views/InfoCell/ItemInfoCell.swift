@@ -62,6 +62,8 @@ class ItemInfoCell: UITableViewCell {
 
 }
 
+// MARK: - PAGER VIEW DATA SOURCE
+
 extension ItemInfoCell: FSPagerViewDataSource {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
@@ -78,6 +80,8 @@ extension ItemInfoCell: FSPagerViewDataSource {
     }
     
 }
+
+// MARK: - PAGER VIEW DELEGATE
 
 extension ItemInfoCell: FSPagerViewDelegate {
     

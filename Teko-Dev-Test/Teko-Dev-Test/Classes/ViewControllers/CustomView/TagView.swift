@@ -22,7 +22,7 @@ class TagView: UIView {
         addDiscountLabel()
     }
     
-    // MARK: FUNCTIONS
+    // MARK: - FUNCTIONS
     
     private func createTagView() {
         path = UIBezierPath()

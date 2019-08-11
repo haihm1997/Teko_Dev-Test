@@ -24,7 +24,7 @@ class SameTypeItemCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    // MARK: FUNCTIONS
+    // MARK: - FUNCTIONS
     
     func fillData(item: Product?) {
         guard let item = item else { return }

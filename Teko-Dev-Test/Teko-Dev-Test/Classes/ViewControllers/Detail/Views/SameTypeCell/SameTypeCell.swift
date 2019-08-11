@@ -31,6 +31,8 @@ class SameTypeCell: UITableViewCell {
     
 }
 
+// MARK: - COLLECTION VIEW DATA SOURCE
+
 extension SameTypeCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -45,6 +47,8 @@ extension SameTypeCell: UICollectionViewDataSource {
     }
     
 }
+
+// MARK: - COLLECTION VIEW DELEGATE FLOW LAYOUT
 
 extension SameTypeCell: UICollectionViewDelegateFlowLayout {
     

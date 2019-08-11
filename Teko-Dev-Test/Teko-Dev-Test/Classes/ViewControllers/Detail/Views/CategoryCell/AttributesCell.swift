@@ -46,7 +46,7 @@ class AttributesCell: FSPagerViewCell {
         checkShowMoreViewVisibility()
     }
     
-    // MARKS: FUNCTIONS
+    // MARKS: - FUNCTIONS
     
     private func checkShowMoreViewVisibility() {
         let realCellHeight = rowHeight * CGFloat(attributeList.count) + 24
@@ -86,6 +86,8 @@ class AttributesCell: FSPagerViewCell {
     }
     
 }
+
+// MARK: - TABLE VIEW DATA SOURCE
 
 extension AttributesCell: UITableViewDataSource {
     

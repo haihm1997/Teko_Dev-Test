@@ -87,6 +87,8 @@ class SearchVC: BaseVC {
 
 }
 
+// MARK: - TEXT VIEW DELEGATE
+
 extension SearchVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -96,6 +98,8 @@ extension SearchVC: UITextFieldDelegate {
     }
     
 }
+
+// MARK: - TABLE VIEW DATA SOURCE
 
 extension SearchVC: UITableViewDataSource {
     
@@ -111,6 +115,8 @@ extension SearchVC: UITableViewDataSource {
     }
     
 }
+
+// MARK: - TABLE VIEW DELEGATE
 
 extension SearchVC: UITableViewDelegate {
     

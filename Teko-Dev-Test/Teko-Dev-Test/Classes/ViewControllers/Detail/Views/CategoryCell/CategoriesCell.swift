@@ -98,6 +98,7 @@ class CategoriesCell: UITableViewCell {
     
 }
 
+// MARK: - PAGER VIEW DATA SOURCE
 extension CategoriesCell: FSPagerViewDataSource {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
@@ -159,6 +160,8 @@ extension CategoriesCell: FSPagerViewDataSource {
     
 }
 
+// MARK: - PAGER VIEW DELEGATE
+
 extension CategoriesCell: FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, shouldSelectItemAt index: Int) -> Bool {
@@ -173,6 +176,8 @@ extension CategoriesCell: FSPagerViewDelegate {
     }
     
 }
+
+//MARK: - ENUM
 
 enum CategoriesCellIndex: Int {
     case DescCellType = 0

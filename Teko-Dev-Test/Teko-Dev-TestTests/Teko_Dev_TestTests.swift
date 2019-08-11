@@ -11,24 +11,23 @@ import XCTest
 
 class Teko_Dev_TestTests: XCTestCase {
 
+    let product = Product()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        product.discount = 100000
+        product.price.sellPrice = 1000000
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testCalculateDiscount() {
+        let result = product.calculateDiscountPercent()
+        
+        let expectResult = 10
+        
+        XCTAssertEqual(result, expectResult)
     }
 
 }

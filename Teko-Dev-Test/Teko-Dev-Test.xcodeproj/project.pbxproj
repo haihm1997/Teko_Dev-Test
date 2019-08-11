@@ -59,11 +59,19 @@
 		52ADC97F22F74452000D6408 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC97E22F74452000D6408 /* TagView.swift */; };
 		52ADC98122F7552A000D6408 /* FloatingPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADC98022F7552A000D6408 /* FloatingPoint+.swift */; };
 		52FD73C922FFE8960058E2B6 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD73C822FFE8960058E2B6 /* Detail.swift */; };
+		52FD73D222FFECDE0058E2B6 /* UtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD73D122FFECDE0058E2B6 /* UtilTest.swift */; };
 		CACC0029B8B170B42983671B /* Pods_Teko_Dev_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE3F495E48CD1D38389971F /* Pods_Teko_Dev_Test.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		52ADC94322F71AF5000D6408 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52ADC92622F71AF4000D6408 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52ADC92D22F71AF4000D6408;
+			remoteInfo = "Teko-Dev-Test";
+		};
+		52FD73D422FFECDE0058E2B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 52ADC92622F71AF4000D6408 /* Project object */;
 			proxyType = 1;
@@ -131,6 +139,9 @@
 		52ADC97E22F74452000D6408 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		52ADC98022F7552A000D6408 /* FloatingPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+.swift"; sourceTree = "<group>"; };
 		52FD73C822FFE8960058E2B6 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		52FD73CF22FFECDE0058E2B6 /* UtilTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FD73D122FFECDE0058E2B6 /* UtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilTest.swift; sourceTree = "<group>"; };
+		52FD73D322FFECDE0058E2B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFE3F495E48CD1D38389971F /* Pods_Teko_Dev_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teko_Dev_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +155,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		52ADC93F22F71AF5000D6408 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52FD73CC22FFECDE0058E2B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -207,6 +225,7 @@
 			children = (
 				52ADC93022F71AF4000D6408 /* Teko-Dev-Test */,
 				52ADC94522F71AF5000D6408 /* Teko-Dev-TestTests */,
+				52FD73D022FFECDE0058E2B6 /* UtilTest */,
 				52ADC92F22F71AF4000D6408 /* Products */,
 				CC519043433FA4A4B4412FF0 /* Pods */,
 				FBF34866AE1993C826F479CF /* Frameworks */,
@@ -218,6 +237,7 @@
 			children = (
 				52ADC92E22F71AF4000D6408 /* Teko-Dev-Test.app */,
 				52ADC94222F71AF5000D6408 /* Teko-Dev-TestTests.xctest */,
+				52FD73CF22FFECDE0058E2B6 /* UtilTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -385,6 +405,15 @@
 			path = "TempModel(TestDataOnly)";
 			sourceTree = "<group>";
 		};
+		52FD73D022FFECDE0058E2B6 /* UtilTest */ = {
+			isa = PBXGroup;
+			children = (
+				52FD73D122FFECDE0058E2B6 /* UtilTest.swift */,
+				52FD73D322FFECDE0058E2B6 /* Info.plist */,
+			);
+			path = UtilTest;
+			sourceTree = "<group>";
+		};
 		CC519043433FA4A4B4412FF0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +471,24 @@
 			productReference = 52ADC94222F71AF5000D6408 /* Teko-Dev-TestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		52FD73CE22FFECDE0058E2B6 /* UtilTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52FD73D622FFECDE0058E2B6 /* Build configuration list for PBXNativeTarget "UtilTest" */;
+			buildPhases = (
+				52FD73CB22FFECDE0058E2B6 /* Sources */,
+				52FD73CC22FFECDE0058E2B6 /* Frameworks */,
+				52FD73CD22FFECDE0058E2B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52FD73D522FFECDE0058E2B6 /* PBXTargetDependency */,
+			);
+			name = UtilTest;
+			productName = UtilTest;
+			productReference = 52FD73CF22FFECDE0058E2B6 /* UtilTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -456,6 +503,10 @@
 						CreatedOnToolsVersion = 10.3;
 					};
 					52ADC94122F71AF5000D6408 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 52ADC92D22F71AF4000D6408;
+					};
+					52FD73CE22FFECDE0058E2B6 = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 52ADC92D22F71AF4000D6408;
 					};
@@ -476,6 +527,7 @@
 			targets = (
 				52ADC92D22F71AF4000D6408 /* Teko-Dev-Test */,
 				52ADC94122F71AF5000D6408 /* Teko-Dev-TestTests */,
+				52FD73CE22FFECDE0058E2B6 /* UtilTest */,
 			);
 		};
 /* End PBXProject section */
@@ -502,6 +554,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		52ADC94022F71AF5000D6408 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52FD73CD22FFECDE0058E2B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -606,6 +665,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52FD73CB22FFECDE0058E2B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52FD73D222FFECDE0058E2B6 /* UtilTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -613,6 +680,11 @@
 			isa = PBXTargetDependency;
 			target = 52ADC92D22F71AF4000D6408 /* Teko-Dev-Test */;
 			targetProxy = 52ADC94322F71AF5000D6408 /* PBXContainerItemProxy */;
+		};
+		52FD73D522FFECDE0058E2B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52ADC92D22F71AF4000D6408 /* Teko-Dev-Test */;
+			targetProxy = 52FD73D422FFECDE0058E2B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -830,6 +902,44 @@
 			};
 			name = Release;
 		};
+		52FD73D722FFECDE0058E2B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UtilTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoanghai.UtilTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Teko-Dev-Test.app/Teko-Dev-Test";
+			};
+			name = Debug;
+		};
+		52FD73D822FFECDE0058E2B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UtilTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoanghai.UtilTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Teko-Dev-Test.app/Teko-Dev-Test";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -856,6 +966,15 @@
 			buildConfigurations = (
 				52ADC94F22F71AF5000D6408 /* Debug */,
 				52ADC95022F71AF5000D6408 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52FD73D622FFECDE0058E2B6 /* Build configuration list for PBXNativeTarget "UtilTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52FD73D722FFECDE0058E2B6 /* Debug */,
+				52FD73D822FFECDE0058E2B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

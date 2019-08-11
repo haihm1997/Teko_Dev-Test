@@ -44,7 +44,7 @@ class Product: NSObject {
         self.totalAvailable = json["totalAvailable"].intValue
     }
     
-    private func calculateDiscountPercent() -> Int {
+    func calculateDiscountPercent() -> Int {
         return Int((self.discount / self.price.sellPrice) * 100)
     }
     

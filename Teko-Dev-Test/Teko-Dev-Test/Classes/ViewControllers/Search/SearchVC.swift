@@ -17,7 +17,7 @@ class SearchVC: BaseVC {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var searchResult = [SearchItem]()
+    var searchResult = [Product]()
     
     // MARK: - LIFE CYCLE
     
@@ -58,7 +58,7 @@ class SearchVC: BaseVC {
     
     // MARK: - NAVIGATIONS
     
-    private func showDetailProduct(_ product: SearchItem?) {
+    private func showDetailProduct(_ product: Product?) {
         guard let product = product else { return }
         let detailVC = self.instantiateViewController(fromStoryboard: .main, ofType: DetailVC.self)
         detailVC.selectedItem = product
@@ -76,7 +76,7 @@ class SearchVC: BaseVC {
             self?.dismissLoading()
             if response.code == ApiCode.success.rawValue {
                 if let productsDict = response.data["products"] as? [[String: Any]] {
-                    weakSelf.searchResult = productsDict.map({SearchItem(JSON($0))})
+                    weakSelf.searchResult = productsDict.map({Product(JSON($0))})
                 }
                 self?.tableView.reloadData()
             } else {

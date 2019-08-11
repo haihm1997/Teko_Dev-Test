@@ -22,7 +22,8 @@ class AttributeItemCell: UITableViewCell {
     
     // MARK: FUNCTIONS
     
-    func fillData(item: Attribute) {
+    func fillData(item: Attribute?) {
+        guard let item = item else { return }
         categoryLabel.text = item.name
         valueLabel.text = item.value
         self.contentView.backgroundColor = item.index % 2 == 0 ? Constants.Color.paleGrey : .white

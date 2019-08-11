@@ -1,15 +1,15 @@
 //
-//  DetailItem.swift
+//  Detail.swift
 //  Teko-Dev-Test
 //
-//  Created by Hoàng Hải on 8/10/19.
+//  Created by Hoàng Hải on 8/11/19.
 //  Copyright © 2019 HoangHai. All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
 
-class DetailItem: NSObject {
+class Detail: NSObject {
     
     var attributeList = [Attribute]()
     var seoInfo = ""

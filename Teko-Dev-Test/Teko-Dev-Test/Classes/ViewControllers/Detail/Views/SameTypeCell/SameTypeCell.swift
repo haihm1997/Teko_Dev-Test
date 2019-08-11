@@ -13,7 +13,7 @@ class SameTypeCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     static let identifier = "SameTypeCell"
-    var itemList = [SearchItem]()
+    var itemList = [Product]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,7 +39,7 @@ extension SameTypeCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let sameTypeCell = collectionView.dequeueReusableCell(ofType: SameTypeItemCell.self, for: indexPath)
-        let item = itemList[safe: indexPath.row] ?? SearchItem()
+        let item = itemList[safe: indexPath.row]
         sameTypeCell?.fillData(item: item)
         return sameTypeCell ?? UICollectionViewCell()
     }

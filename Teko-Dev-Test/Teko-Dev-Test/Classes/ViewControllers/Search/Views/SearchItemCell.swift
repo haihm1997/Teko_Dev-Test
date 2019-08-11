@@ -39,7 +39,7 @@ class SearchItemCell: UITableViewCell {
         self.contentView.backgroundColor = Constants.Color.paleGrey
     }
     
-    func fillData(item: SearchItem?) {
+    func fillData(item: Product?) {
         guard let item = item else { return }
         itemName.text = item.name
         itemPriceLabel.text = item.price.sellPrice == 0 ? "0" : Utils.toCurrencyFormat(item.price.sellPrice)

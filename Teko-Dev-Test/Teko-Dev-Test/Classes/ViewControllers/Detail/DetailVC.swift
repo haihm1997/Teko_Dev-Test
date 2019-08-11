@@ -21,9 +21,9 @@ class DetailVC: BaseVC {
     @IBOutlet weak var cartPriceLabel: UILabel!
     @IBOutlet weak var numberItemLabel: UILabel!
     
-    var selectedItem = SearchItem()
-    var searchList = [SearchItem]()
-    var detailItem = DetailItem()
+    var selectedItem = Product()
+    var searchList = [Product]()
+   // var detailItem = Detail()
     fileprivate let infoRowHeight: CGFloat = 462
     fileprivate let categoriesRowHeight: CGFloat = 242
     fileprivate let attributeRowHeight: CGFloat = 200
@@ -102,7 +102,7 @@ class DetailVC: BaseVC {
             self?.dismissLoading()
             if response.code == ApiCode.success.rawValue {
                 if let product = response.data["product"] as? [String: Any] {
-                    weakSelf.detailItem = DetailItem(json: JSON(product))
+                    weakSelf.selectedItem.detail = Detail(json: JSON(product))
                 }
                 weakSelf.tableView.isHidden = false
                 weakSelf.tableView.reloadData()
@@ -141,7 +141,7 @@ extension DetailVC: UITableViewDataSource {
     
     private func setupCategoriesCell(indexPath: IndexPath) -> UITableViewCell {
         let categoriesCell = tableView.dequeueReusableCell(ofType: CategoriesCell.self, for: indexPath)
-        categoriesCell?.detailItem = detailItem
+        categoriesCell?.detailItem = selectedItem.detail
         categoriesCell?.didChangeCellHeight = {
             self.tableView.reloadData()
         }

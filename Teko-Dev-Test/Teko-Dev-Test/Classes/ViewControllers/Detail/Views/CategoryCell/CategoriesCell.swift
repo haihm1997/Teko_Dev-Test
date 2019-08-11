@@ -35,7 +35,7 @@ class CategoriesCell: UITableViewCell {
     var currentCellHeight: [Int: CGFloat] = [CategoriesCellIndex.DescCellType.rawValue: 200,
                                              CategoriesCellIndex.AttributeCellType.rawValue: 200,
                                              CategoriesCellIndex.CompareCellType.rawValue: 200]
-    var detailItem = DetailItem()
+    var detailItem = Detail()
 
     override func awakeFromNib() {
         super.awakeFromNib()

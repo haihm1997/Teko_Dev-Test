@@ -95,7 +95,7 @@ extension AttributesCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let attributeCell = tableView.dequeueReusableCell(ofType: AttributeItemCell.self, for: indexPath)
-        let item = attributeList[safe: indexPath.row] ?? Attribute()
+        let item = attributeList[safe: indexPath.row]
         attributeCell?.fillData(item: item)
         return attributeCell ?? UITableViewCell()
     }

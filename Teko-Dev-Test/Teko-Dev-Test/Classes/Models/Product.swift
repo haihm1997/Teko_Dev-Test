@@ -9,12 +9,13 @@
 import Foundation
 import SwiftyJSON
 
-class SearchItem: NSObject {
+class Product: NSObject {
     
     var id = ""
     var imageUrlList = [String]()
     var name = ""
     var price = Price()
+    var detail = Detail()
     var discount: Float = 0
     var discountPercent = 0
     var totalAvailable = 0

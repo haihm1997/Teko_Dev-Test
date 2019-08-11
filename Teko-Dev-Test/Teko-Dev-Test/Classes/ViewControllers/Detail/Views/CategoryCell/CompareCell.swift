@@ -12,9 +12,5 @@ import FSPagerView
 class CompareCell: FSPagerViewCell {
     
     static let identifier = "CompareCell"
-    
-    override func awakeFromNib() {
-        self.layer.shadowColor = UIColor.clear.cgColor
-    }
 
 }

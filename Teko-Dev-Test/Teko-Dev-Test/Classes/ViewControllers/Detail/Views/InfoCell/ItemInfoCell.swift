@@ -32,7 +32,7 @@ class ItemInfoCell: UITableViewCell {
     
     static let identifier = "ItemInfoCell"
     
-    var currentItem = SearchItem()
+    var currentItem = Product()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,7 +46,7 @@ class ItemInfoCell: UITableViewCell {
         Utils.makeGradientForView(availableView)
     }
 
-    func fillData(item: SearchItem) {
+    func fillData(item: Product) {
         self.currentItem = item
         itemNameLabel.text = item.name
         itemCodeLabel.text = item.id

@@ -26,7 +26,8 @@ class SameTypeItemCell: UICollectionViewCell {
     
     // MARK: FUNCTIONS
     
-    func fillData(item: SearchItem) {
+    func fillData(item: Product?) {
+        guard let item = item else { return }
         if let url = URL(string: item.imageUrlList.first ?? "") {
             productImage.af_setImage(withURL: url)
         } else {

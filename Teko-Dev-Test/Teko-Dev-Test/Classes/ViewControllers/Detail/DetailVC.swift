@@ -23,7 +23,7 @@ class DetailVC: BaseVC {
     
     var selectedItem = Product()
     var searchList = [Product]()
-   // var detailItem = Detail()
+
     fileprivate let infoRowHeight: CGFloat = 462
     fileprivate let categoriesRowHeight: CGFloat = 242
     fileprivate let attributeRowHeight: CGFloat = 200

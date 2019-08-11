@@ -68,22 +68,22 @@ class CategoriesCell: UITableViewCell {
         resetAllView()
         switch index {
         case CategoriesCellIndex.DescCellType:
-            descItemButton.setTitleColor(Constants.Color.darkGrey, for: .normal)
-            descDecorView.backgroundColor = Constants.Color.tomato
+            descItemButton.setTitleColor(UIColor.darkGrey, for: .normal)
+            descDecorView.backgroundColor = UIColor.tomato
         case CategoriesCellIndex.AttributeCellType:
-            attributeButton.setTitleColor(Constants.Color.darkGrey, for: .normal)
-            attributeDecorView.backgroundColor = Constants.Color.tomato
+            attributeButton.setTitleColor(UIColor.darkGrey, for: .normal)
+            attributeDecorView.backgroundColor = UIColor.tomato
         case CategoriesCellIndex.CompareCellType:
-            comparePriceButton.setTitleColor(Constants.Color.darkGrey, for: .normal)
-            compareDecorView.backgroundColor = Constants.Color.tomato
+            comparePriceButton.setTitleColor(UIColor.darkGrey, for: .normal)
+            compareDecorView.backgroundColor = UIColor.tomato
         }
     }
     
     private func resetAllView() {
         // Button
-        descItemButton.setTitleColor(Constants.Color.coolGrey, for: .normal)
-        attributeButton.setTitleColor(Constants.Color.coolGrey, for: .normal)
-        comparePriceButton.setTitleColor(Constants.Color.coolGrey, for: .normal)
+        descItemButton.setTitleColor(UIColor.coolGrey, for: .normal)
+        attributeButton.setTitleColor(UIColor.coolGrey, for: .normal)
+        comparePriceButton.setTitleColor(UIColor.coolGrey, for: .normal)
         
         // Decoration View
         descDecorView.backgroundColor = .clear

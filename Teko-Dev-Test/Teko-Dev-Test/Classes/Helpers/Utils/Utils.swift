@@ -22,7 +22,7 @@ class Utils: NSObject {
     static func makeGradientForView(_ parentView: UIView) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = parentView.bounds
-        gradientLayer.colors =  [Constants.Color.tomatoTwo.cgColor, Constants.Color.reddishOrange.cgColor]
+        gradientLayer.colors =  [UIColor.tomatoTwo.cgColor, UIColor.reddishOrange.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradientLayer.cornerRadius = parentView.layer.cornerRadius

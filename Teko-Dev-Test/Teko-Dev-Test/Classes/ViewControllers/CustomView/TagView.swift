@@ -60,7 +60,7 @@ class TagView: UIView {
         path.addLine(to: CGPoint(x: 0.0, y: containerHeight / 2))
         
         path.close()
-        Constants.Color.tomatoTwo.setFill()
+        UIColor.tomatoTwo.setFill()
         path.fill()
     }
     

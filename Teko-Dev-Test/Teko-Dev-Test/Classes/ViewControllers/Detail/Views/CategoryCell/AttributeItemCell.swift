@@ -26,7 +26,7 @@ class AttributeItemCell: UITableViewCell {
         guard let item = item else { return }
         categoryLabel.text = item.name
         valueLabel.text = item.value
-        self.contentView.backgroundColor = item.index % 2 == 0 ? Constants.Color.paleGrey : .white
+        self.contentView.backgroundColor = item.index % 2 == 0 ? UIColor.paleGrey : .white
     }
 
 }

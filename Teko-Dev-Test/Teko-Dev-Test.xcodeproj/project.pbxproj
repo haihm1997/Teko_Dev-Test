@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		521484F522F9D39C003118C6 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521484F422F9D39C003118C6 /* UIScreen+.swift */; };
-		521484F722F9D6BE003118C6 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521484F622F9D6BE003118C6 /* UIApplication+.swift */; };
 		521484F922F9E49D003118C6 /* SearchItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521484F822F9E49D003118C6 /* SearchItemCell.xib */; };
 		522DD69822F9EB4000885F13 /* SearchItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DD69722F9EB4000885F13 /* SearchItemCell.swift */; };
 		522DD69A22F9EE7000885F13 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DD69922F9EE7000885F13 /* Product.swift */; };
@@ -84,7 +83,6 @@
 		277C2909786CD94E53E863FD /* Pods-Teko-Dev-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teko-Dev-Test.release.xcconfig"; path = "Target Support Files/Pods-Teko-Dev-Test/Pods-Teko-Dev-Test.release.xcconfig"; sourceTree = "<group>"; };
 		463A437277A5503DE2A34ADC /* Pods-Teko-Dev-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teko-Dev-Test.debug.xcconfig"; path = "Target Support Files/Pods-Teko-Dev-Test/Pods-Teko-Dev-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		521484F422F9D39C003118C6 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
-		521484F622F9D6BE003118C6 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		521484F822F9E49D003118C6 /* SearchItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchItemCell.xib; sourceTree = "<group>"; };
 		522DD69722F9EB4000885F13 /* SearchItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemCell.swift; sourceTree = "<group>"; };
 		522DD69922F9EE7000885F13 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -362,7 +360,6 @@
 				52ADC97822F739C6000D6408 /* UIViewController+.swift */,
 				52ADC98022F7552A000D6408 /* FloatingPoint+.swift */,
 				521484F422F9D39C003118C6 /* UIScreen+.swift */,
-				521484F622F9D6BE003118C6 /* UIApplication+.swift */,
 				52A8178422FEEEB700B3E562 /* UIColor+.swift */,
 			);
 			path = Extensions;
@@ -617,7 +614,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A8178322FECF4400B3E562 /* Attribute.swift in Sources */,
-				521484F722F9D6BE003118C6 /* UIApplication+.swift in Sources */,
 				52ADC97F22F74452000D6408 /* TagView.swift in Sources */,
 				522DD69A22F9EE7000885F13 /* Product.swift in Sources */,
 				52FD73C922FFE8960058E2B6 /* Detail.swift in Sources */,

@@ -97,9 +97,8 @@ class DetailVC: BaseVC {
     // MARK: CALL API
     
     private func getDetailItem() {
-        Address.Search.detailItemExcLink = Address.Search.baseDetailItem + "\(selectedItem.id)"
         showLoading()
-        APIService.detailItem().subscribe(onNext: { [weak self] response in
+        APIService.detailItem("\(selectedItem.id)").subscribe(onNext: { [weak self] response in
             guard let weakSelf = self else { return }
             self?.dismissLoading()
             if response.code == ApiCode.success.rawValue {

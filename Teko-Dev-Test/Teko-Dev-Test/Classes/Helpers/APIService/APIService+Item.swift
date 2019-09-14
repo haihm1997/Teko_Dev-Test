@@ -15,7 +15,7 @@ class ItemRouter: BaseRequest {
     
     enum EndPoint {
         case search([String: Any])
-        case detail
+        case detail(String)
     }
     
     var endPoint: EndPoint
@@ -46,8 +46,8 @@ class ItemRouter: BaseRequest {
         switch endPoint {
         case .search:
             return Address.Search.searchItem
-        case .detail:
-            return Address.Search.detailItemExcLink
+        case .detail(let param):
+            return Address.Search.baseDetailItem + param
         }
     }
     
@@ -58,7 +58,7 @@ extension APIService {
         return request(ItemRouter(endPoint: .search(params)))
     }
     
-    static func detailItem() -> Observable<APIResponse> {
-        return request(ItemRouter(endPoint: .detail))
+    static func detailItem(_ itemId: String) -> Observable<APIResponse> {
+        return request(ItemRouter(endPoint: .detail(itemId)))
     }
 }

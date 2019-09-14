@@ -15,7 +15,6 @@ struct Address {
     struct Search {
         static let searchItem = "search/"
         static let baseDetailItem = "products/"
-        static var detailItemExcLink = ""
     }
     
 }

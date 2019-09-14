@@ -45,6 +45,7 @@ class SearchVC: BaseVC {
                            forCellReuseIdentifier: SearchItemCell.identifier)
         tableView.isEmptyRowsHidden = true
         tableView.rowHeight = 110
+        tableView.separatorColor = .clear
     }
     
     private func configSearchView() {
